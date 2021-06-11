@@ -1,0 +1,24 @@
+<h1>Parent Component</h1>
+  
+<div>
+  <button (click)="userLoggedIn = true">Login Senpai</button>
+  <button (click)="userLoggedIn = false">Logout Senpai</button>
+  <p>{{userLoggedIn}}</p>
+</div>
+
+<!-- <app-child [loggedIn]="userLoggedIn"></app-child> -->
+<!--in the opening tag of the child component we bind to the input property that the
+   child component expects the value of the property in the parent component
+   child component expects=[loggedIn]
+   value of the property in the parent component is userLoggedIn-->
+
+
+<app-child-two [logged]="userLoggedIn"></app-child-two>
+
+
+
+<!-- using template reference variable you are able to access the child component's properties and methods in the parent component template.
+but what if we wanted to access them in the parent component class.  For that we use @ tViewChild  -->
+<app-child-three #child></app-child-three>
+{{child.name}}
+<button (click)="child.greetDiana()">Greet</button>
